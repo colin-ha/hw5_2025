@@ -1,0 +1,143 @@
+/* adds the Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@keyframes logo-motion {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation: logo-motion 1s normal;
+    width: 475px;
+}
+
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_links a:visited {
+    color: blue;
+}
+
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-radius: 50px 50px 0 0;
+}
+
+.card {
+    /*Fix to the above child selector*/
+    border-radius: 50px 50px 0 0;
+
+    /*Main styling*/
+    flex-basis: 450px;
+}
+
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery img{
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+@media(min-width: 900px){
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        flex-direction: row;
+    }
+
+    .card {
+        flex-basis: 275px;
+    }
+
+    .pricing {
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    body > header {
+        position: sticky;
+        top: 0;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+        width: 475px;
+    }
+}
+
+@media print{
+    body {
+        font-family: Arial, Helvetica, serif;
+        background-image: none;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        align-items: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .pricing {
+        align-items: flex-end;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .card{
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    .gallery, #gallery {
+        display: none;
+    }
+
+    .card li:nth-of-type(2):after{
+        content: "👍";
+    }
+}
