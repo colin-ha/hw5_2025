@@ -38,6 +38,7 @@ header {
     color: blue;
 }
 
+/*get any headers that are directly children of the card*/
 .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
@@ -66,6 +67,7 @@ header {
     width: 300px;
 }
 
+/*Wrap the gallery to a new line now*/
 .gallery{
     display: flex;
     flex-wrap: wrap;
@@ -92,6 +94,7 @@ header {
         align-items: flex-start;
     }
 
+    /*Makes sure its the header that is directly a child of body, not the other ones*/
     body > header {
         position: sticky;
         top: 0;
@@ -107,14 +110,15 @@ header {
 
 @media print{
     body {
-        font-family: Arial, Helvetica, serif;
+        font-family: Arial, Helvetica; /*warning here, should have a fallback*/
         background-image: none;
     }
+
 
     .nav_links {
         flex-direction: row;
         justify-content: space-around;
-        width: 100%;
+        width: 100%; /*Fills out the space horizontally*/
         align-items: center;
     }
 
@@ -126,6 +130,7 @@ header {
         align-items: flex-end;
         justify-content: center;
         flex-wrap: nowrap;
+        /*No wrap forces them to stay on one line, and sizing adjusts accordingly*/
     }
 
     .card{
@@ -133,10 +138,12 @@ header {
         flex-basis: 325px;
     }
 
+    /*Don't display the gallery or the text hedaing for it*/
     .gallery, #gallery {
         display: none;
     }
 
+    /*Here, get the li in card, then get the 2nd item, then put this after it*/
     .card li:nth-of-type(2):after{
         content: "👍";
     }
